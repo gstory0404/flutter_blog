@@ -1,0 +1,34 @@
+name: blog
+description: my blog
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.3 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  get: ^4.1.4
+  responsive_builder: ^0.4.1
+  url_launcher: ^6.0.3
+#  markdown_widget: ^1.2.6-nullsafety
+  markdown_widget:
+    git: https://github.com/asjqkkkk/markdown_widget.git
+#    ref: master
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+
+
+
