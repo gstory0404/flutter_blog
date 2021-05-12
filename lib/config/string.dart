@@ -5,6 +5,7 @@
 
 class MyString{
   static final String title = "Gstory";
+  static final String index = "只有尝试过,努力过,坚持过,才能有收获";
   static final String home = "首页";
   static final String classify = "归档";
   static final String about = "关于";

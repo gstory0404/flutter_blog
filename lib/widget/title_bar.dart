@@ -2,6 +2,7 @@ import 'package:blog/config/color.dart';
 import 'package:blog/config/router.dart';
 import 'package:blog/config/string.dart';
 import 'package:blog/util/launch_util.dart';
+import 'package:blog/widget/line_border_text.dart';
 import 'package:blog/widget/snowflake_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,12 +13,18 @@ import 'package:get/get.dart';
 
 class TitleBar {
   static SliverAppBar titleAppBar(
-      {bool isShowBack = true, Widget? titleContent}) {
+      {Widget? titleContent}) {
     return SliverAppBar(
-      automaticallyImplyLeading: isShowBack,
-      title: Text(
-        MyString.title,
-        style: TextStyle(fontSize: 30),
+      automaticallyImplyLeading: Get.context!.isPhone,
+      title: LineBorderText(
+        autoAnim: true,
+        child: Container(
+          child: Text(
+            MyString.title,
+            style: TextStyle(fontSize: 24),
+          ),
+          margin: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+        ),
       ),
       backgroundColor: MyColor.mianColor,
       floating: false,
@@ -50,7 +57,9 @@ class TitleBar {
         ),
       ),
       TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(MyRouter.classify);
+        },
         child: Text(
           MyString.classify,
           style: TextStyle(
@@ -60,7 +69,9 @@ class TitleBar {
         ),
       ),
       TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(MyRouter.about);
+        },
         child: Text(
           MyString.about,
           style: TextStyle(
@@ -158,10 +169,10 @@ class TitleBar {
               Get.toNamed(MyRouter.index);
               break;
             case "classify":
-              print("添加朋友");
+              Get.toNamed(MyRouter.classify);
               break;
             case "about":
-              print("扫一扫");
+              Get.toNamed(MyRouter.about);
               break;
             case "theme":
               Get.changeTheme(
