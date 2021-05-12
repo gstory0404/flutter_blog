@@ -20,12 +20,9 @@ jobs:
       - run: |
           cd build/web
           git init
-          # 改成你的提交邮箱
           git config --global user.email gwj0404@163.com
-          # 改成你的提交用户名
           git config --global user.name gstory
           git status
-          # 更改此远程URL，例如查看您的远程URL是 https://github.com/onatcipli/flutter_web.git 然后改成以下内容
           git remote add origin https://${{secrets.commit_secret}}@github.com/gstory0404/flutter_blog.git
           git checkout -b gh-pages
           git add --all
